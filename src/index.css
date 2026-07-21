@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display-glass: 'Outfit', system-ui, sans-serif;
+  --font-display-brutal: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #F7F6FB;
+    --foreground: #0B0B12;
+    --panel-bg: rgba(255, 255, 255, 0.6);
+    --panel-border: rgba(255, 255, 255, 0.5);
+    --panel-radius: 1.5rem;
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    --panel-blur: blur(24px);
+    --accent: #8B5CF6;
+    --accent-brutal: #3D5AFE;
+    --success: #34D399;
+    --success-brutal: #B4FF3D;
+  }
+
+  .dark {
+    --background: #0B0B12;
+    --foreground: #F7F6FB;
+    --panel-bg: rgba(255, 255, 255, 0.08);
+    --panel-border: rgba(255, 255, 255, 0.15);
+    --panel-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --accent: #22D3EE;
+    --accent-brutal: #FFD60A;
+    --success: #34D399;
+  }
+
+  /* Hello Kitty Theme Base Overrides */
+  .theme-hello-kitty {
+    --background: #ffe4e1;
+    --foreground: #5a3c42;
+    --panel-bg: rgba(255, 255, 255, 0.7);
+    --panel-border: rgba(247, 168, 184, 0.6);
+    --accent: #f7a8b8;
+    --accent-brutal: #FF5C8A;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* -------------------------
+   GLASSMORPHISM
+------------------------- */
+.design-glass {
+  font-family: var(--font-sans);
+}
+.design-glass h1, .design-glass h2, .design-glass h3 {
+  font-family: var(--font-display-glass);
+}
+.design-glass .ui-panel {
+  background: var(--panel-bg);
+  backdrop-filter: var(--panel-blur) saturate(180%);
+  -webkit-backdrop-filter: var(--panel-blur) saturate(180%);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow);
+  border-radius: var(--panel-radius);
+  /* Inner highlight */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), var(--panel-shadow);
+}
+.design-glass .ui-button {
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  transition: all 0.2s ease-out;
+}
+.design-glass .ui-button:active {
+  transform: scale(0.97);
+}
+
+/* -------------------------
+   NEOBRUTALISM
+------------------------- */
+.design-brutal {
+  font-family: var(--font-sans);
+}
+.design-brutal h1, .design-brutal h2, .design-brutal h3 {
+  font-family: var(--font-display-brutal);
+  letter-spacing: -0.02em;
+}
+.design-brutal .ui-panel {
+  background: var(--background);
+  border: 3px solid var(--foreground);
+  box-shadow: 6px 6px 0px var(--foreground);
+  border-radius: 0px;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.design-brutal.dark .ui-panel {
+  background: #111;
+  border-color: #fff;
+  box-shadow: 6px 6px 0px #fff;
+}
+.design-brutal .ui-button {
+  background: var(--accent-brutal);
+  color: #fff;
+  border: 3px solid var(--foreground);
+  box-shadow: 4px 4px 0px var(--foreground);
+  border-radius: 0px;
+  font-weight: 700;
+  transition: transform 0.1s linear, box-shadow 0.1s linear;
+}
+.design-brutal.dark .ui-button {
+  border-color: #fff;
+  box-shadow: 4px 4px 0px #fff;
+  color: #000;
+}
+.design-brutal .ui-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px transparent !important;
+}
+
+/* Ensure background canvases stay in back */
+#bg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
