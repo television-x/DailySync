@@ -41,6 +41,28 @@
     --accent: #f7a8b8;
     --accent-brutal: #FF5C8A;
   }
+
+  /* Noir Theme */
+  .theme-noir {
+    --background: #FFFFFF;
+    --foreground: #000000;
+    --panel-bg: rgba(255, 255, 255, 0.8);
+    --panel-border: rgba(0, 0, 0, 0.2);
+    --accent: #000000;
+    --accent-brutal: #000000;
+    --success: #4D4D4D;
+    --success-brutal: #4D4D4D;
+  }
+  .dark .theme-noir, .theme-noir.dark {
+    --background: #000000;
+    --foreground: #FFFFFF;
+    --panel-bg: rgba(0, 0, 0, 0.5);
+    --panel-border: rgba(255, 255, 255, 0.2);
+    --accent: #FFFFFF;
+    --accent-brutal: #FFFFFF;
+    --success: #B3B3B3;
+    --success-brutal: #B3B3B3;
+  }
 }
 
 body {
@@ -49,6 +71,14 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* Noise Pattern for Noir */
+.theme-noir {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjA1Jy8+PC9zdmc+");
+}
+.dark .theme-noir, .theme-noir.dark {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZSc+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2UpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+");
 }
 
 /* -------------------------
@@ -103,6 +133,16 @@ body {
   border-color: #fff;
   box-shadow: 6px 6px 0px #fff;
 }
+.design-brutal.theme-noir .ui-panel {
+  background: var(--background);
+  border-color: var(--foreground);
+  box-shadow: 6px 6px 0px var(--foreground);
+}
+.design-brutal.theme-noir.dark .ui-panel, .dark .design-brutal.theme-noir .ui-panel {
+  background: #000;
+  border-color: #fff;
+  box-shadow: 6px 6px 0px #fff;
+}
 .design-brutal .ui-button {
   background: var(--accent-brutal);
   color: #fff;
@@ -116,6 +156,16 @@ body {
   border-color: #fff;
   box-shadow: 4px 4px 0px #fff;
   color: #000;
+}
+.design-brutal.theme-noir .ui-button {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+  box-shadow: 4px 4px 0px var(--foreground);
+}
+.design-brutal.theme-noir .ui-button:hover {
+  background: var(--background);
+  color: var(--foreground);
 }
 .design-brutal .ui-button:active {
   transform: translate(4px, 4px);

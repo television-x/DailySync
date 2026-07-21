@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type ThemeMode = 'light' | 'dark' | 'system';
-type BackgroundTheme = 'default' | 'hello-kitty';
+type BackgroundTheme = 'default' | 'hello-kitty' | 'noir';
 type DesignSystem = 'glass' | 'brutal';
 
 interface ThemeContextType {
@@ -32,7 +32,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const root = window.document.documentElement;
     
     // Remove old classes
-    root.classList.remove('light', 'dark', 'theme-hello-kitty', 'design-glass', 'design-brutal');
+    root.classList.remove('light', 'dark', 'theme-hello-kitty', 'theme-noir', 'design-glass', 'design-brutal');
 
     // Handle Light/Dark Mode
     if (mode === 'system') {

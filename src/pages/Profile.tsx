@@ -144,6 +144,7 @@ export const Profile: React.FC = () => {
             >
               <option value="default">Default</option>
               <option value="hello-kitty">Hello Kitty</option>
+              <option value="noir">Noir (Mono)</option>
             </select>
           </div>
           <div>
