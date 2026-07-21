@@ -1,19 +1,21 @@
-import React, { useCallback } from 'react';
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import type { Engine } from 'tsparticles-engine';
+import React, { useEffect, useState } from 'react';
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import { tsParticles } from "@tsparticles/engine";
 
 const ParticlesBackground: React.FC<{ theme: string }> = ({ theme }) => {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    // Cast engine to any to bypass v2/v3 type mismatch between react-tsparticles and tsparticles-slim
-    await loadFull(engine as any);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    loadSlim(tsParticles).then(() => {
+      setInit(true);
+    });
   }, []);
 
-  if (theme === 'hello-kitty') {
+  if (theme === 'hello-kitty' && init) {
     return (
       <Particles
         id="tsparticles"
-        init={particlesInit}
         className="-z-10 absolute inset-0 w-full h-full"
         options={{
           fullScreen: { enable: false },
@@ -22,7 +24,6 @@ const ParticlesBackground: React.FC<{ theme: string }> = ({ theme }) => {
           interactivity: {
             events: {
               onHover: { enable: true, mode: "bubble" },
-              resize: true,
             },
             modes: {
               bubble: { distance: 200, size: 10, duration: 2, opacity: 0.8 },
@@ -39,11 +40,11 @@ const ParticlesBackground: React.FC<{ theme: string }> = ({ theme }) => {
               speed: 1,
               straight: false,
             },
-            number: { density: { enable: true, area: 800 }, value: 40 },
+            number: { value: 40 },
             opacity: {
               value: 0.6,
               random: true,
-              anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+              animation: { enable: true, speed: 1, sync: false }
             },
             shape: {
               type: ["circle", "star"],
