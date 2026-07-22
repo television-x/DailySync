@@ -64,4 +64,4 @@ The magic of DailySync lies in its `ThemeContext.tsx` and `index.css`. The app d
 - Palette classes: `.theme-noir` or `.theme-hello-kitty`
 - Mode class: `.dark`
 
-Try combining them! *Noir + Brutal + Dark Mode* provides a hacker-style high-contrast interface, while *Default + Glass + Light Mode* offers a serene, frosted aesthetic.
+
